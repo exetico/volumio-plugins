@@ -35,7 +35,7 @@ podfeeder.prototype.onStart = function() {
 
 
 	self.logger.info("Adding hourly cron-job");
-	exec("/usr/bin/sudo /data/plugins/music_service/podfeeder/cron_add.sh", {
+	exec("sh ./data/plugins/music_service/podfeeder/cron_add.sh", {
 	 uid: 1000,
 	 gid: 1000
 	}, function(error, stdout, stderr) {
@@ -63,14 +63,27 @@ podfeeder.prototype.onStop = function() {
     var defer=libQ.defer();
 
 	self.logger.info("Removing hourly cron-job");
-	exec("/usr/bin/sudo /data/plugins/music_service/podfeeder/cron_remove.sh", {
+	exec("sh ./data/plugins/music_service/podfeeder/cron_remove.sh", {
 	 uid: 1000,
 	 gid: 1000
 	}, function(error, stdout, stderr) {
-	 if (error) {
-	  self.logger.info('Error in removing cron aka. stopping the service... Did you remove it manually from /etc/cron.hourly/podfeeder-update?')
-	 }
+		console.log('stdout: ' + stdout);
+		console.log('stderr: ' + stderr);
+		if (error !== null) {
+		  console.log('exec error: ' + error);
+		}
 	});
+
+	// self.logger.info("Removing hourly cron-job");
+	// exec("./data/plugins/music_service/podfeeder/cron_remove.sh", {
+	//  uid: 1000,
+	//  gid: 1000
+	// }, function(error, stdout, stderr) {
+	//  if (error) {
+	//   self.logger.info('Error in removing cron aka. stopping the service... Did you remove it manually from /etc/cron.hourly/podfeeder-update?')
+	//  }
+	// });
+
 
     // Once the Plugin has successfull stopped resolve the promise
     defer.resolve();
