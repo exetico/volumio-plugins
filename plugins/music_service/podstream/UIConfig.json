@@ -1,39 +1,39 @@
 {
   "page": {
-    "label": "TRANSLATE.PODSTREAM.PODSTREAMCONF"
+    "label": "All good stuff"
   },
   "sections": [ 
-   {
-      "id": "section_account",
-      "element": "section",
-      "label": "TRANSLATE.PODSTREAM.PODSTREAMACCOUNT",
-      "icon": "fa-plug",
-      "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePODSTREAMAccount"},
-      "saveButton": {
-        "label": "TRANSLATE.PODSTREAM.SAVE",
-        "data": [
-          "rssfeeds",
-          "oncalendar"
-        ]
-      },
-      "content": [
-        {
-          "id": "rssfeeds",
-          "type":"text",
-          "element": "input",
-          "doc": "TRANSLATE.PODSTREAM.TIPPODFEEDS",
-          "label": "TRANSLATE.PODSTREAM.RSSFEEDS",
-          "value": "Morten Resen - Startup;http://mortenresen.libsyn.com/rss"
-        },
-        {
-          "id": "oncalendar",
-          "type":"text",
-          "element": "input",
-          "doc": "TRANSLATE.PODSTREAM.TIPPODFEEDS",
-          "label": "TRANSLATE.PODSTREAM.RSSFEEDS",
-          "value": "3"
-        }
+  {
+    "id": "section_account",
+    "element": "section",
+    "label": "Podcasts",
+    "icon": "fa-podcasts",
+    "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePODSTREAMAccount"},
+    "saveButton": {
+      "label": "Save",
+      "data": [
+        "rssfeeds",
+        "oncalendar"
       ]
+    },
+    "content": [
+      {
+        "id": "rssfeeds",
+        "type":"text",
+        "element": "input",
+        "doc": "Put in good rssfeed stuff here",
+        "label": "Rssfeeds",
+        "value": ""
+      },
+      {
+        "id": "oncalendar",
+        "type":"text",
+        "element": "input",
+        "doc": "Here is some other good stuff",
+        "label": "Oncalendar",
+        "value": "3"
+      }
+    ]
    }
   ]
 }

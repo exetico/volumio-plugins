@@ -20,7 +20,7 @@ function ControllerPodstream(context) {
  this.configManager = this.context.configManager;
 
  // Setup Debugger
- self.logger.PodStr = function(data) {
+ self.logger.PodLog = function(data) {
   self.logger.info('[Podstream] ' + data);
  };
 
@@ -148,19 +148,22 @@ ControllerPodstream.prototype.onUninstall = function() {
 ControllerPodstream.prototype.getUIConfig = function() {
  var defer = libQ.defer();
  var self = this;
+
  var lang_code = this.commandRouter.sharedVars.get('language_code');
+ self.logger.PodLog('Loading up Configs')
 
  self.commandRouter.i18nJson(__dirname + '/i18n/strings_' + lang_code + '.json',
    __dirname + '/i18n/strings_en.json',
    __dirname + '/UIConfig.json')
   .then(function(uiconf) {
-
-   uiconf.sections[0].content[0].value = self.config.get('rssfeeds');
-   uiconf.sections[0].content[1].value = self.config.get('oncalendar');
-   defer.resolve(uiconf);
+    self.logger.PodLog('File found..')
+    uiconf.sections[0].content[0].value = self.config.get('rssfeeds');
+    uiconf.sections[0].content[1].value = self.config.get('oncalendar');
+    defer.resolve(uiconf);
   })
   .fail(function() {
-   defer.reject(new Error());
+    self.logger.PodLog('Error with loading configs..')
+    defer.reject(new Error());
   });
 
  return defer.promise;
