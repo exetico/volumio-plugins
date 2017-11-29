@@ -31,7 +31,7 @@ function ControllerPodstream(context) {
 
 }
 
-ControllerPodstream.prototype.onPodstreamStart = function() {
+ControllerPodstream.prototype.onVolumioStart = function() {
  var self = this;
  var configFile = this.commandRouter.pluginManager.getConfigurationFile(this.context, 'config.json');
  this.config = new(require('v-conf'))();

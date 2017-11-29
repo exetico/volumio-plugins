@@ -1,7 +1,9 @@
 #!/bin/bash
 PLFOLDER="/data/playlist"
 TEMPLATE="volumio.xsl"
+PLUGINDIR="/data/plugins/music_service/podstream"
 
+cd $PLUGINDIR
 
 #download rss feeds
 while read p; do

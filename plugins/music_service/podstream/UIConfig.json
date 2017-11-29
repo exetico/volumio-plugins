@@ -1,16 +1,16 @@
 {
   "page": {
-    "label": "All good stuff"
+    "label": "TRANSLATE.POD.Headline"
   },
   "sections": [ 
   {
     "id": "section_account",
     "element": "section",
-    "label": "Podcasts",
+    "label": "TRANSLATE.POD.OptionHeader",
     "icon": "fa-podcasts",
-    "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePODSTREAMAccount"},
+    "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePodstreamAccount"},
     "saveButton": {
-      "label": "Save",
+      "label": "TRANSLATE.POD.Save",
       "data": [
         "rssfeeds",
         "oncalendar"
@@ -21,8 +21,11 @@
         "id": "rssfeeds",
         "type":"text",
         "element": "input",
-        "doc": "Put in good rssfeed stuff here",
-        "label": "Rssfeeds",
+        "doc": "TRANSLATE.POD.RssDoc",
+        "attributes": [
+          {"placeholder": "TRANSLATE.POD.RssPlaceholder"}, {"cols": 40}, {"rows": 5}
+        ],
+        "label": "TRANSLATE.POD.RssfeedsTitle",
         "value": ""
       },
       {

@@ -1,6 +1,10 @@
 {
- "PODSTREAM":{
-    "CONF":"Volumio Spotify connect Configuration",
-    "ACCOUNT":"Spotify account"
+ "POD":{
+    "Headline":"Podstream - Stream podcasts from Volumio",
+    "OptionHeader": "Options",
+    "Save": "Save",
+    "RssDov": "Put in feeds like: Title;http://hereisapodcast.com/rss",
+    "RssPlaceholder" : "Title;http://hereisapodcast.com/rss",
+    "RssfeedsTitle" : "RSS Feeds"
  }
 }
