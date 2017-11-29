@@ -1,0 +1,8 @@
+echo "Fixing dat .sh-script, of course!"
+sudo chmod +x /data/plugins/music_service/podfeeder/rss2playlist.sh
+sudo chmod +x /data/plugins/music_service/podfeeder/cron_add.sh
+sudo chmod +x /data/plugins/music_service/podfeeder/cron_remove.sh
+
+If you need to differentiate install for armhf and i386 you can get the variable like this
+DPKG_ARCH=`dpkg --print-architecture`
+Then use it to differentiate your install

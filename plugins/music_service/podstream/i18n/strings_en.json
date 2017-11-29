@@ -1,0 +1,16 @@
+{
+ "PODSTREAM":{
+    "PODSTREAMCONF":"Volumio Spotify connect Configuration",
+    "PODSTREAMACCOUNT":"Spotify account",
+    "RSSFEEDS":"rssfeeds",
+    "PASSWORD":"password",
+    "HIGHONCALENDAR":"Set for high bitrate",
+    "FAMILYSHARE":"Shared device",
+    "SAVE":"Save",
+    "TIPSPOTACCOUNT":"This is the username of your Spotify account",
+    "TIPONCALENDAR":"This is the password of your Spotify account",
+    "TIPBITRATE":"Stream Quality",
+    "TIPSHAREDDEVICE":"Enable to share your device with other user on your local network",
+    "MESSCONFIGSAVE":"New PODSTREAM configuration saved"
+ }
+}

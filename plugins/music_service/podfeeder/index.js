@@ -33,20 +33,21 @@ podfeeder.prototype.onStart = function() {
     var self = this;
 	var defer=libQ.defer();
 
-
-	self.logger.info("Adding hourly cron-job");
-	exec("sh ./data/plugins/music_service/podfeeder/cron_add.sh", {
-	 uid: 1000,
-	 gid: 1000
-	}, function(error, stdout, stderr) {
-	if (error !== null) {
-		self.logger.info('All good')
-		// Once the Plugin has successfull started resolve the promise
-		defer.resolve();
-	} else {
-	  	self.logger.info('Error in removing cron aka. stopping the service... Did you remove it manually from /etc/cron.hourly/podfeeder-update?' + error)
-		defer.reject();
-	}
+	var scriptname = "cron_add"
+	var command = "/usr/bin/sudo /data/plugins/music_service/podfeeder/" + scriptname + ".sh";
+	exec(command, {uid:1000,gid:1000}, function (error, stdout, stderr) {
+		if (error !== null) {
+			self.commandRouter.pushConsoleMessage('The following error occurred while starting ' + scriptname + ': ' + error);
+			self.commandRouter.pushToastMessage('error', "Restart failed", "Restarting " + scriptname + " failed with error: " + error);
+			defer.reject();
+		}
+		else {
+			self.commandRouter.pushConsoleMessage(scriptname + ' started');
+			if(boot == false)
+				self.commandRouter.pushToastMessage('success', "Restarted " + scriptname, "Restarted " + scriptname + " for the changes to take effect.");
+			
+			defer.resolve();
+		}
 	});
   
 	// SOURCE: https://github.com/balbuze/volumio-plugins/blob/master/plugins/music_service/volspotconnect/index.js
@@ -62,17 +63,18 @@ podfeeder.prototype.onStop = function() {
     var self = this;
     var defer=libQ.defer();
 
-	self.logger.info("Removing hourly cron-job");
-	exec("sh ./data/plugins/music_service/podfeeder/cron_remove.sh", {
-	 uid: 1000,
-	 gid: 1000
-	}, function(error, stdout, stderr) {
-		console.log('stdout: ' + stdout);
-		console.log('stderr: ' + stderr);
-		if (error !== null) {
-		  console.log('exec error: ' + error);
-		}
-	});
+
+
+	// exec("/usr/bin/sudo /data/plugins/music_service/podfeeder/cron_remove.sh", {
+	//  uid: 1000,
+	//  gid: 1000
+	// }, function(error, stdout, stderr) {
+	// 	console.log('stdout: ' + stdout);
+	// 	console.log('stderr: ' + stderr);
+	// 	if (error !== null) {
+	// 	  console.log('exec error: ' + error);
+	// 	}
+	// });
 
 	// self.logger.info("Removing hourly cron-job");
 	// exec("./data/plugins/music_service/podfeeder/cron_remove.sh", {

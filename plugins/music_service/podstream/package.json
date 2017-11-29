@@ -1,0 +1,22 @@
+{
+  "name": "podstream",
+  "version": "0.0.1",
+  "description": "Listen to Podcast with Volumio (streaming)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nordahl.io",
+  "license": "ISC",
+  "volumio_info": {
+    "prettyName": "Podstream v. 0.0.1",
+    "icon": "fa-podcast",
+    "plugin_type": "music_service"
+  },
+  "dependencies": {
+    "fs-extra": "^0.28.0",
+    "kew": "^0.7.0",
+    "net": "^1.0.2",
+    "v-conf": "^0.10.0"
+      }
+}

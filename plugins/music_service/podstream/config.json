@@ -1,0 +1,10 @@
+{
+  "rssfeeds": {
+    "type": "string",
+    "value": "Morten Resen - Startup;http://mortenresen.libsyn.com/rss"
+  },
+  "oncalendar": {
+    "type": "string",
+    "value": "3"
+  }
+}
