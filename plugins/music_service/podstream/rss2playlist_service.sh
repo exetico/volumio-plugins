@@ -1,9 +1,12 @@
 #!/bin/bash
+PLUGINDIR="/data/plugins/music_service/podstream"
 PLFOLDER="/data/playlist"
 TEMPLATE="volumio.xsl"
-PLUGINDIR="/data/plugins/music_service/podstream"
 
+echo "Let's go - Here goes the podcast train"
 cd $PLUGINDIR
+#ls
+#tail rssfeeds
 
 #download rss feeds
 while read p; do
@@ -11,7 +14,6 @@ while read p; do
   echo "${p##*;}"
   wget "${p##*;}" -O "${p%;*}".rss      
 done <rssfeeds
-
 
 #convert rss feeds to playlist
 shopt -s nullglob
@@ -22,4 +24,4 @@ do
   echo "Converting rss file - $f"
   xsltproc -o "$PLFOLDER"/"$filename" "$TEMPLATE" "$f"
   rm "$filename".rss
-done 
+done

@@ -1,11 +1,10 @@
 
 [Unit]
 Description=Podstream Service for Volumio
-After=syslog.target
 
 [Service]
 Type=simple
-ExecStart=/data/plugins/music_service/podstream/rss2playlist.sh
+ExecStart=/data/plugins/music_service/podstream/rss2playlist_service.sh
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=volumio

@@ -6,6 +6,7 @@ var fs = require('fs-extra');
 var config = new(require('v-conf'))();
 var exec = require('child_process').exec;
 var execSync = require('child_process').execSync;
+var endOfLine = require('os').EOL;
 
 var routn = {};
 // Define the ControllerPodstream class
@@ -212,7 +213,7 @@ ControllerPodstream.prototype.createRSSFEEDS = function() {
    //var conf3 = conf2.replace("${rate}", rate);
    
 
-   fs.writeFile("/data/plugins/music_service/podstream/rssfeeds", feedsString, 'utf8', function(err) {
+   fs.writeFile("/data/plugins/music_service/podstream/rssfeeds", feedsString + endOfLine, 'utf8', function(err) {
     if (err)
      defer.reject(new Error(err));
     else defer.resolve();

@@ -7,8 +7,8 @@ echo "Credits for the plugin-structure goes to balbuze's volspotconnect"
 echo "Credits for the original podcast-playlist structure and solution goes to github.com/buzink"
 echo "...for original podcast2playlist-solution with xsltproc, but most of the stuff is almost reborn"
 
-#echo "Chmod script"
-#chmod +x /data/plugins/music_service/podstream/rss2playlist.sh
+echo "Chmod script"
+sudo chmod u+x /data/plugins/music_service/podstream/rss2playlist_service.sh
 
 echo "Checking if podstream service exists"
 if [ ! -f "/etc/systemd/system/podstream.service" ];
