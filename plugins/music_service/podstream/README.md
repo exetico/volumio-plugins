@@ -1,5 +1,7 @@
 [![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.svg)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
 
+** Please note that this plugin isn't ready for regular use with auto-updates. But you can actually us it. To force an update, just restart Volumio, or disable and enable the plugin. If you have any improvements to the project, please fell free to suggest changes.**
+
 # Stream Podcasts on Volumio (Create playlist with rss-feeds)
 This is in a very early state, but you are welcome to look into how it looks.
 
@@ -28,7 +30,10 @@ I don't have any plans to extend this feature, cause it's so easy to put up a ne
 - Store playlists in own folder, so it's possibe to remove the playlists when removing the plugin, or do something else? Also think about making a clean-function, if a foldes will be created.
 - Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling.
 - Maybe add the option to combine both lit-download from URL and local input, and allowing users to add more than one feed with a seperator like "||" or something else.
-- ~~Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?~~ [**30. nov 2017**: Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`]
+
+## Last big improvements
+- ~~Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?~~ 
+[**30. nov 2017**] Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`]
 
 ## Credits
 - Thanks to volspotconnect for the structure of the solution. I couldnt' find out how is was working.
