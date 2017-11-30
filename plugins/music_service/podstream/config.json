@@ -1,11 +1,11 @@
 {
-  "rssfeeds": {
-    "type": "string",
-    "value": ""
-  },
   "rssurlswitch": {
     "type": "boolean",
     "value": true
+  },
+  "rssfeeds": {
+    "type": "string",
+    "value": ""
   },
   "rssurlinput": {
     "type": "string",

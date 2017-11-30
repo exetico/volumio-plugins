@@ -158,10 +158,10 @@ ControllerPodstream.prototype.getUIConfig = function() {
    __dirname + '/UIConfig.json')
   .then(function(uiconf) {
     self.logger.PodLog('File found..')
-    uiconf.sections[0].content[0].value = self.config.get('rssfeeds');
-    uiconf.sections[0].content[3].value = self.config.get('rssurlswitch');
-    uiconf.sections[0].content[3].value = self.config.get('rssurlinput');
-    uiconf.sections[0].content[3].value = self.config.get('oncalendar');
+    uiconf.sections[0].content[0].value = self.config.get('rssurlswitch');
+    uiconf.sections[0].content[1].value = self.config.get('rssfeeds');
+    uiconf.sections[0].content[2].value = self.config.get('rssurlinput');
+    uiconf.sections[1].content[0].value = self.config.get('oncalendar');
     defer.resolve(uiconf);
   })
   .fail(function() {
