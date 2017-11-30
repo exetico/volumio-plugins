@@ -159,7 +159,9 @@ ControllerPodstream.prototype.getUIConfig = function() {
   .then(function(uiconf) {
     self.logger.PodLog('File found..')
     uiconf.sections[0].content[0].value = self.config.get('rssfeeds');
-    uiconf.sections[0].content[1].value = self.config.get('oncalendar');
+    uiconf.sections[0].content[3].value = self.config.get('rssurlswitch');
+    uiconf.sections[0].content[3].value = self.config.get('rssurlinput');
+    uiconf.sections[0].content[3].value = self.config.get('oncalendar');
     defer.resolve(uiconf);
   })
   .fail(function() {
@@ -244,9 +246,9 @@ ControllerPodstream.prototype.savePodstreamAccount = function(data) {
  var defer = libQ.defer();
 
  self.config.set('rssfeeds', data['rssfeeds']);
+ self.config.set('rssurlswitch', data['rssurlswitch']);
+ self.config.set('rssurlinput', data['rssurlinput']);
  self.config.set('oncalendar', data['oncalendar']);
- //self.config.set('bitrate', data['bitrate']);
- //self.config.set('familyshare', data['familyshare']);
  self.rebuildPodstreamAndRestartDaemon()
   .then(function(e) {
    //    self.commandRouter.pushToastMessage('success', "Configuration update", 'The configuration of Podstream has been successfully updated');

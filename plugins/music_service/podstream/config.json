@@ -3,6 +3,14 @@
     "type": "string",
     "value": ""
   },
+  "rssurlswitch": {
+    "type": "boolean",
+    "value": true
+  },
+  "rssurlinput": {
+    "type": "string",
+    "value": "https://pastebin.com/raw/X7UD5wqR"
+  },
   "oncalendar": {
     "type": "string",
     "value": "3"

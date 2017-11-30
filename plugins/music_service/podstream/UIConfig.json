@@ -13,15 +13,37 @@
       "label": "TRANSLATE.POD.Save",
       "data": [
         "rssfeeds",
+        "rssurlswitch",
+        "rssurlinput",
         "oncalendar"
       ]
     },
     "content": [
       {
+        "id":"rssurlswitch",
+        "element": "switch",
+        "doc": "Use Podcast-list from URL",
+        "label": "Use Postcast-list from URL",
+        "value": true
+      },
+      {
+        "id": "rssurlinput",
+        "type":"text",
+        "element": "input",
+        "doc": "Load up data from the web is enabled. Secure that only raw text is provided, with one podcast on each line. Formatted as'Title;http://podcasturl.com/rss', and a linebreak between each!",
+        "visibleIf": {"field": "rssurlswitch", "value": true},
+        "attributes": [
+          {"placeholder": "http://url.com/PlainFileWithPodcatsList"}, {"cols": 40}, {"rows": 5}
+        ],
+        "label": "Download list from:",
+        "value": ""
+      },
+      {
         "id": "rssfeeds",
         "type":"text",
         "element": "input",
         "doc": "TRANSLATE.POD.RssDoc",
+        "visibleIf": {"field": "rssurlswitch", "value": false},
         "attributes": [
           {"placeholder": "TRANSLATE.POD.RssPlaceholder"}, {"cols": 40}, {"rows": 5}
         ],
@@ -33,7 +55,7 @@
         "type":"text",
         "element": "input",
         "doc": "Here is some other good stuff",
-        "label": "Oncalendar",
+        "label": "NOT USED RIGHT NOW - Oncalendar",
         "value": "3"
       }
     ]
