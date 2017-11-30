@@ -5,18 +5,19 @@
 # Stream Podcasts on Volumio (Create playlist with rss-feeds)
 This is in a very early state, but you are welcome to look into how it looks.
 
-## What is this?
+## Just a quick overview of the main features
+### What is this?
 It allows you to stream podcasts and other content stored in rss format.
 
 ### Thumbsnails
 Images is provided and listed left to the podcast-episode, if it's provided in the source. Currenlty i'm only looking into the "itunes:image" format (or any other dat ending with `:image`) like: `<itunes:image href="http://static.libsyn.com/p/assets/6/2/7/d/627d856fee180d97/Morten-Resen-podcast-cover-art.jpg" />`
 
-## Playlists
+### Playlists
 The plugin generates playlists based on the rss-feeds. The lists will be visible in "Browse" > "Playlists". Currenlty the playlists isn't removed if you change the source to something else (See to-do)
 
 The data is stored in the `/data/playlist' folder in Volumios preffered format (JSON).
 
-## Download RSS-list from URL
+### Download RSS-list from URL
 Podstream allowing you to point to an URL, if you like to add multiple things.
 
 Just put a text-file somewhere, and put in the URL like `https://pastebin.com/raw/HCVV55US`. I recommend pastebin.com cause whey support raw-output, but a lot of other options is possible too, including Github itself.
