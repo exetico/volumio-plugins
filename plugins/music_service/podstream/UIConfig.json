@@ -8,33 +8,45 @@
       "element": "section",
       "label": "TRANSLATE.POD.FeedHeader",
       "icon": "fa-podcasts",
-      "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePodstreamAccount"},
+      "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePodstreamOptions"},
       "saveButton": {
         "label": "TRANSLATE.POD.Save",
         "data": [
-          "rssurlswitch",
-          "rssfeeds",
-          "rssurlinput"
+          "rssdatatypeselect",
+          "rssurlinput",
+          "rssfeeds"
         ]
       },
       "content": [
         {
-          "id":"rssurlswitch",
-          "element": "switch",
-          "doc": "Use Podcast-list from URL",
-          "label": "Use Postcast-list from URL",
-          "value": true
+          "id": "rssdatatypeselect",
+          "doc": "Data source documentations will come in the future!",
+          "label": "Data source",
+          "element": "select",
+          "value": {
+            "value": 1,
+            "label": "Download from URL"
+          },
+          "options": [
+            {
+              "value": 1,
+              "label": "Download from URL"
+            },
+            {
+              "value": 2,
+              "label": "Local input"
+            }
+          ]
         },
         {
           "id": "rssurlinput",
           "type":"text",
           "element": "input",
           "doc": "Load up data from the web is enabled. Secure that only raw text is provided, with one podcast on each line. Formatted as'Title;http://podcasturl.com/rss', and a linebreak between each!",
-          "visibleIf": {"field": "rssurlswitch", "value": true},
           "attributes": [
-            {"placeholder": "http://url.com/PlainFileWithPodcatsList"}, {"cols": 40}, {"rows": 5}
+            {"placeholder": "https://pastebin.com/raw/X7UD5wqR"}
           ],
-          "label": "Download list from:",
+          "label": "Download from URL",
           "value": ""
         },
         {
@@ -42,7 +54,6 @@
           "type":"text",
           "element": "input",
           "doc": "TRANSLATE.POD.RssDoc",
-          "visibleIf": {"field": "rssurlswitch", "value": false},
           "attributes": [
             {"placeholder": "TRANSLATE.POD.RssPlaceholder"}, {"cols": 40}, {"rows": 5}
           ],
@@ -56,7 +67,7 @@
     "element": "section",
     "label": "TRANSLATE.POD.IntervalHeader",
     "icon": "fa-podcasts",
-    "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePodstreamAccount"},
+    "onSave": {"type":"controller", "endpoint":"music_service/podstream", "method":"savePodstreamOptions"},
     "saveButton": {
       "label": "TRANSLATE.POD.Save",
       "data": [

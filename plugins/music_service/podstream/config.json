@@ -1,18 +1,18 @@
 {
-  "rssurlswitch": {
-    "type": "boolean",
-    "value": true
+  "rssdatatypeselect": {
+    "type": "number",
+    "value": 1
+  },
+  "rssurlinput": {
+    "type": "string",
+    "value": ""
   },
   "rssfeeds": {
     "type": "string",
     "value": ""
   },
-  "rssurlinput": {
-    "type": "string",
-    "value": "https://pastebin.com/raw/X7UD5wqR"
-  },
   "oncalendar": {
     "type": "string",
-    "value": "3"
+    "value": ""
   }
 }

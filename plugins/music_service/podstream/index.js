@@ -158,9 +158,18 @@ ControllerPodstream.prototype.getUIConfig = function() {
    __dirname + '/UIConfig.json')
   .then(function(uiconf) {
     self.logger.PodLog('File found..')
-    uiconf.sections[0].content[0].value = self.config.get('rssurlswitch');
-    uiconf.sections[0].content[1].value = self.config.get('rssfeeds');
-    uiconf.sections[0].content[2].value = self.config.get('rssurlinput');
+
+    var findOption = function (optionVal, options) {
+      for (var i = 0; i < options.length; i++) {
+          if (options[i].value === optionVal)
+              return options[i];
+      }
+    };
+
+    uiconf.sections[0].content[0].value =
+      findOption(self.config.get('rssdatatypeselect'), uiconf.sections[0].content[0].options);
+    uiconf.sections[0].content[1].value = self.config.get('rssurlinput');
+    uiconf.sections[0].content[2].value = self.config.get('rssfeeds');
     uiconf.sections[1].content[0].value = self.config.get('oncalendar');
     defer.resolve(uiconf);
   })
@@ -240,14 +249,21 @@ ControllerPodstream.prototype.createRSSFEEDS = function() {
 
 };
 
-ControllerPodstream.prototype.savePodstreamAccount = function(data) {
+ControllerPodstream.prototype.savePodstreamOptions = function(data) {
  var self = this;
 
  var defer = libQ.defer();
 
- self.config.set('rssfeeds', data['rssfeeds']);
- self.config.set('rssurlswitch', data['rssurlswitch']);
+ // Selectors - See: https://github.com/volumio/volumio-plugins/blob/master/plugins/music_service/qobuz/index.js
+ var rssTypeSelected =
+ data['rssdatatypeselect'] && data['rssdatatypeselect'].value
+     ? data['rssdatatypeselect'].value
+     : 1;
+ self.config.set('rssdatatypeselect', rssTypeSelected);
+
+ // Input
  self.config.set('rssurlinput', data['rssurlinput']);
+ self.config.set('rssfeeds', data['rssfeeds']);
  self.config.set('oncalendar', data['oncalendar']);
  self.rebuildPodstreamAndRestartDaemon()
   .then(function(e) {

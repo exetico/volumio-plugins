@@ -1,11 +1,11 @@
 {
  "POD":{
     "Headline":"Podstream - Stream podcasts from Volumio",
-    "FeedHeader": "Feed",
-    "IntervalHeader": "Plannd task settings",
+    "FeedHeader": "Feeds",
+    "IntervalHeader": "Interval",
     "Save": "Save",
     "RssDov": "Put in feeds like: Title;http://hereisapodcast.com/rss",
     "RssPlaceholder" : "Title;http://hereisapodcast.com/rss",
-    "RssfeedsTitle" : "RSS Feeds"
+    "RssfeedsTitle" : "Local input"
  }
 }
