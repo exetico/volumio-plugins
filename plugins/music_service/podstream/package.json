@@ -14,9 +14,11 @@
     "plugin_type": "music_service"
   },
   "dependencies": {
+    "download": "^6.2.5",
+    "download-file": "^0.1.5",
     "fs-extra": "^0.28.0",
     "kew": "^0.7.0",
     "net": "^1.0.2",
     "v-conf": "^0.10.0"
-      }
+  }
 }
