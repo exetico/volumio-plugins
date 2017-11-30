@@ -9,7 +9,7 @@ This is in a very early state, but you are welcome to look into how it looks.
 ### What is this?
 It allows you to stream podcasts and other content stored in rss format.
 
-### Thumbsnails
+### Thumbnails
 Images is provided and listed left to the podcast-episode, if it's provided in the source. Currenlty i'm only looking into the "itunes:image" format (or any other dat ending with `:image`) like: `<itunes:image href="http://static.libsyn.com/p/assets/6/2/7/d/627d856fee180d97/Morten-Resen-podcast-cover-art.jpg" />`
 
 ### Playlists
