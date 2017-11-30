@@ -34,7 +34,7 @@ I don't have any plans to extend this feature, cause it's so easy to put up a ne
 
 ## Last big improvements
 - ~~Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?~~ 
-[**30. nov 2017**] Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`]
+[**30. nov 2017**] Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`
 
 ## Credits
 - Thanks to volspotconnect for the structure of the solution. I couldnt' find out how is was working.
