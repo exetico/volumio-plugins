@@ -1,6 +1,6 @@
 [![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.svg)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
 
-** Please note that this plugin isn't ready for regular use with auto-updates. But you can actually us it. To force an update, just restart Volumio, or disable and enable the plugin. If you have any improvements to the project, please fell free to suggest changes.**
+!! **Please note that this plugin isn't ready for regular use with auto-updates RSS-feeds. But you can actually us it. To force an update, just restart Volumio, or disable and enable the plugin. If you have any improvements to the project, please fell free to suggest changes.** !!
 
 # Stream Podcasts on Volumio (Create playlist with rss-feeds)
 This is in a very early state, but you are welcome to look into how it looks.
@@ -9,7 +9,7 @@ This is in a very early state, but you are welcome to look into how it looks.
 ### What is this?
 It allows you to stream podcasts and other content stored in rss format.
 
-### Thumbsnails
+### Thumbnails
 Images is provided and listed left to the podcast-episode, if it's provided in the source. Currenlty i'm only looking into the "itunes:image" format (or any other dat ending with `:image`) like: `<itunes:image href="http://static.libsyn.com/p/assets/6/2/7/d/627d856fee180d97/Morten-Resen-podcast-cover-art.jpg" />`
 
 ### Playlists
