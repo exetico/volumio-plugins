@@ -121,7 +121,7 @@ ControllerPodstream.prototype.handleBrowseUri = function (curUri) {
     var self = this;
     var response;
 
-    self.logger.info("CURURI: "+curUri);
+    self.logger.info("CURURI podstreams: "+curUri);
 	var splitted=curUri.split('/');
 
 //playlist
@@ -141,7 +141,7 @@ ControllerPodstream.prototype.handleBrowseUri = function (curUri) {
 ControllerPodstream.prototype.listPlaylists = function (uri) {
 	var self = this;
 
-
+    self.logger.info("PODSTREAMlistPlaylists: "+uri);
 	var defer = libQ.defer();
 
 	var response={
@@ -159,7 +159,7 @@ ControllerPodstream.prototype.listPlaylists = function (uri) {
         }
     };
 
-	var promise = self.commandRouter.playListManager.listPlaylist();
+	var promise = self.listPlaylist();
 	promise.then(function (data) {
 		for (var i in data) {
 			var ithdata = data[i];
@@ -183,9 +183,24 @@ ControllerPodstream.prototype.listPlaylists = function (uri) {
 	return defer.promise;
 };
 
+ControllerPodstream.prototype.listPlaylist = function () {
+    var defer = libQ.defer();
+    var self = this;
+
+    self.logger.info('[' + Date.now() + '] ' + 'Listing podstreams');
+
+    fs.readdir("/data/podstream", function(err,folderContents) {
+        defer.resolve(folderContents);
+    });
+
+    return defer.promise;
+};
+
 ControllerPodstream.prototype.browsePlaylist = function (uri) {
 	var self = this;
     
+    self.logger.info("podstreams browsePlaylist: "+curUri);
+
     var defer = libQ.defer();
     var name = uri.split('/')[1];
     console.log(uri)
@@ -450,7 +465,7 @@ ControllerPodstream.prototype.stop = function() {
         gid: 1000
     }, function(error, stdout, stderr) {
         if (error) {
-            self.logger.info('Error in killing Voslpotconnect')
+            self.logger.info('Error in killing Podstream')
         }
     });
 
