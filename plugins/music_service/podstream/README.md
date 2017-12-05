@@ -29,6 +29,7 @@ I don't have any plans to extend this feature, cause it's so easy to put up a ne
 - Create .timer for the .service, so it's triggered every 2. hours fx.
 - Allow the user to edit the frequency of the update-interval (on hour-basis) in the Volumio-configs
 - Store playlists in own folder, so it's possibe to remove the playlists when removing the plugin, or do something else? Also think about making a clean-function, if a foldes will be created.
+- ^ As part of this, consider to move the things to a "Podstream" section in "Browse" for easy access.
 - Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling.
 - Maybe add the option to combine both lit-download from URL and local input, and allowing users to add more than one feed with a seperator like "||" or something else.
 

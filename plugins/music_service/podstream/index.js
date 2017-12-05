@@ -92,16 +92,352 @@ ControllerPodstream.prototype.onStart = function() {
     var defer = libQ.defer();
 
     self.startPodstreamDaemon()
-        .then(function(e) {
-            //self.PodstreamDaemonConnect(defer)
-            // Run stuff when Daemon is connected
-        })
-        .fail(function(e) {
-            defer.reject(new Error());
-        });
+    .then(function(e) {
+        //self.PodstreamDaemonConnect(defer)
+        // Run stuff when Daemon is connected
+    })
+    .fail(function(e) {
+        defer.reject(new Error());
+    });
+
+    // ### Browse START
+        self.addToBrowseSources();
+    // ### Browse END
 
     return defer.promise;
 };
+
+
+////////////////////// ### BROWSE THINGS START ### ///////////////////////////////////
+// https://github.com/volumio/Volumio2/blob/master/app/plugins/music_service/mpd/index.js
+ControllerPodstream.prototype.addToBrowseSources = function () {
+    var data = {albumart: '/albumart?sourceicon=music_service/last_100/icon.svg', name: 'Podstream', uri: 'podstreams', plugin_type:'music_service',
+        plugin_name:'podstream'};
+    this.commandRouter.volumioAddToBrowseSources(data);
+};
+
+
+ControllerPodstream.prototype.handleBrowseUri = function (curUri) {
+    var self = this;
+    var response;
+
+    self.logger.info("CURURI: "+curUri);
+	var splitted=curUri.split('/');
+
+//playlist
+	if (curUri.startsWith('podstreams')) {
+        if (curUri == 'podstreams'){
+            response = self.listPlaylists(curUri);
+		}
+        else {
+			response = self.browsePlaylist(curUri);
+		}
+	}
+
+    return response;
+}
+
+
+ControllerPodstream.prototype.listPlaylists = function (uri) {
+	var self = this;
+
+
+	var defer = libQ.defer();
+
+	var response={
+        "navigation": {
+            "lists": [
+                {
+                    "availableListViews": [
+                        "list"
+                    ],
+                    "items": [
+
+                    ]
+                }
+            ]
+        }
+    };
+
+	var promise = self.commandRouter.playListManager.listPlaylist();
+	promise.then(function (data) {
+		for (var i in data) {
+			var ithdata = data[i];
+			var playlist = {
+                "service": "mpd",
+                "type": 'podstream',
+                "title": ithdata,
+                "icon": 'fa fa-list-ol',
+                "uri": 'podstreams/' + ithdata
+            };
+            response.navigation.lists[0].items.push(playlist);
+
+
+            }
+
+
+		defer.resolve(response);
+	});
+
+
+	return defer.promise;
+};
+
+ControllerPodstream.prototype.browsePlaylist = function (uri) {
+	var self = this;
+    
+    var defer = libQ.defer();
+    var name = uri.split('/')[1];
+    console.log(uri)
+
+    var response={
+        "navigation": {
+            "lists": [
+                {
+                    "availableListViews": [
+                        "list"
+                    ],
+                    "items": [
+
+                    ]
+                }
+            ],
+            "info": {
+                "uri": 'podstreams/favourites',
+                "title":  name,
+                "name": name,
+                "service": 'mpd',
+                "type":  'play-playlist',
+                "albumart": '/albumart?sourceicon=music_service/mpd/playlisticon.svg'
+            },
+            "prev": {
+                "uri": "podstreams"
+            }
+        }
+    };
+
+    var name = uri.split('/')[1];
+
+    var promise = self.commandRouter.playListManager.getPlaylistContent(name);
+    promise.then(function (data) {
+
+        var n = data.length;
+        for (var i = 0; i < n; i++) {
+            var ithdata = data[i];
+            var song = {
+                service: ithdata.service,
+                type: 'song',
+                title: ithdata.title,
+                artist: ithdata.artist,
+                album: ithdata.album,
+                albumart: ithdata.albumart,
+                uri: ithdata.uri
+            };
+            response.navigation.lists[0].items.push(song);
+        }
+
+        defer.resolve(response);
+    });
+
+    return defer.promise;
+};
+
+ControllerPodstream.prototype.lsInfo = function (uri) {
+	var self = this;
+
+	var defer = libQ.defer();
+
+	var sections = uri.split('/');
+	var prev = '';
+	var folderToList = '';
+	var command = 'lsinfo';
+
+	if (sections.length > 1) {
+
+		prev = sections.slice(0, sections.length - 1).join('/');
+
+		folderToList = sections.slice(1).join('/');
+
+		command += ' "' + folderToList + '"';
+
+	}
+
+	var cmd = libMpd.cmd;
+
+	self.mpdReady.then(function () {
+		self.clientMpd.sendCommand(cmd(command, []), function (err, msg) {
+			var list = [];
+			if (msg) {
+                var s0 = sections[0] + '/';
+				var path;
+				var name;
+				var dirtype;
+				var lines = msg.split('\n');
+				for (var i = 0; i < lines.length; i++) {
+					var line = lines[i];
+
+					if (line.indexOf('directory:') === 0) {
+                        var diricon = 'fa fa-folder-open-o';
+						path = line.slice(11);
+						var namearr = path.split('/');
+
+                        var albumart = self.getAlbumArt('', '/mnt/' + path,'folder-o');
+
+						dirtype = 'folder';
+
+						name = namearr.pop();
+						list.push({
+							type: dirtype,
+							title: name,
+							service:'mpd',
+							albumart: albumart,
+							uri: s0 + path
+						});
+					}
+					else if (line.indexOf('playlist:') === 0) {
+						path = line.slice(10);
+						name = path.split('/').pop();
+						if (path.endsWith('.cue')) {
+							try {
+								var cuesheet = parser.parse('/mnt/' + path);
+
+								list.push({
+									service: 'mpd',
+									type: 'cuefile',
+									title: name,
+									icon: 'fa fa-list-ol',
+									uri: s0 + path
+								});
+								var tracks = cuesheet.files[0].tracks;
+								for (var j in tracks) {
+
+									list.push({
+										service: 'mpd',
+										type: 'cuesong',
+										title: tracks[j].title,
+										artist: tracks[j].performer,
+										album: path.substring(path.lastIndexOf("/") + 1),
+										number: tracks[j].number - 1,
+										icon: 'fa fa-music',
+										uri: s0 + path
+									});
+								}
+							} catch (err) {
+								self.logger.info('Cue Parser - Cannot parse ' + path);
+							}
+						} else {
+							list.push({
+								service: 'mpd',
+								type: 'song',
+								title: name,
+								icon: 'fa fa-list-ol',
+								uri: s0 + path
+							});
+						}
+					}
+					else if (line.indexOf('file:') === 0) {
+						var path = line.slice(6);
+						var name = path.split('/').pop();
+
+						var artist = self.searchFor(lines, i + 1, 'Artist:');
+						var album = self.searchFor(lines, i + 1, 'Album:');
+						if (!tracknumbers) {
+							var title = self.searchFor(lines, i + 1, 'Title:');
+						}
+						else {
+							var title1 = self.searchFor(lines, i + 1, 'Title:');
+							var track = self.searchFor(lines, i + 1, 'Track:');
+							var title = track + " - " + title1;
+						}
+						var year,albumart,tracknumber,duration,composer,genre;
+						if(self.commandRouter.sharedVars.get('extendedMetas'))
+                        {
+                            year = self.searchFor(lines, i + 1, 'Date:');
+                            if(year)
+                            {
+                                year=parseInt(year);
+                            }
+
+                            albumart = self.getAlbumArt({artist: artist, album: album},
+                                self.getParentFolder('/mnt/' + path),'fa-tags');
+                            tracknumber = self.searchFor(lines, i + 1, 'Track:');
+
+                            if(tracknumber)
+                            {
+                                var split=tracknumber.split('/');
+                                tracknumber=parseInt(split[0]);
+                            }
+
+                            duration = self.searchFor(lines, i + 1, 'Time:');
+                            composer=artist;
+                            genre = self.searchFor(lines, i + 1, 'Genre:');
+                        }
+
+
+						if (title) {
+							title = title;
+						} else {
+							title = name;
+						}
+                        var albumart = self.getAlbumArt('', self.getParentFolder('/mnt/' + path), 'music');
+						list.push({
+							service: 'mpd',
+							type: 'song',
+							title: title,
+							artist: artist,
+							album: album,
+							uri: s0 + path,
+                            year:year,
+                            albumart:albumart,
+                            genre:genre,
+                            tracknumber:tracknumber,
+                            duration:duration,
+                            composer:composer
+						});
+					}
+
+				}
+			}
+			else self.logger.info(err);
+
+			defer.resolve({
+				navigation: {
+					prev: {
+						uri: prev
+					},
+					lists: [{availableListViews:['grid', 'list'],items:list}]
+				}
+			});
+		});
+	});
+	return defer.promise;
+};
+
+
+ControllerPodstream.prototype.searchFor = function (lines, startFrom, beginning) {
+    
+        var count = lines.length;
+        var i = startFrom;
+    
+        while (i < count) {
+            var line = lines[i];
+    
+            if(line!==undefined) {
+                if (line.indexOf(beginning) === 0)
+                    return line.slice(beginning.length).trimLeft();
+                else if (line.indexOf('file:') === 0)
+                    return '';
+                else if (line.indexOf('directory:') === 0)
+                    return '';
+            }
+    
+            i++;
+        }
+    };
+
+////////////////////// ### BROWSE THINGS END ### ///////////////////////////////////
+
+
 
 // Podstream stop
 ControllerPodstream.prototype.stop = function() {
