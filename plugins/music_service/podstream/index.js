@@ -21,6 +21,8 @@ function ControllerPodstream(context) {
     this.logger = this.context.logger;
     this.configManager = this.context.configManager;
 
+	self.podstreamFolder = '/data/podstream/';
+
     // Setup Debugger
     self.logger.PodLog = function(data) {
         self.logger.info('[Podstream] ' + data);
@@ -108,8 +110,8 @@ ControllerPodstream.prototype.onStart = function() {
 };
 
 
-////////////////////// ### BROWSE THINGS START ### ///////////////////////////////////
-// https://github.com/volumio/Volumio2/blob/master/app/plugins/music_service/mpd/index.js
+////////////////////// ### BROWSE START ### ///////////////////////////////////
+// Most of the code is from: https://github.com/volumio/Volumio2/blob/master/app/plugins/music_service/mpd/index.js
 ControllerPodstream.prototype.addToBrowseSources = function () {
     var data = {albumart: '/albumart?sourceicon=music_service/last_100/icon.svg', name: 'Podstream', uri: 'podstreams', plugin_type:'music_service',
         plugin_name:'podstream'};
@@ -189,7 +191,7 @@ ControllerPodstream.prototype.listPlaylist = function () {
 
     self.logger.info('[' + Date.now() + '] ' + 'Listing podstreams');
 
-    fs.readdir("/data/podstream", function(err,folderContents) {
+    fs.readdir(self.podstreamFolder, function(err,folderContents) {
         defer.resolve(folderContents);
     });
 
@@ -199,7 +201,7 @@ ControllerPodstream.prototype.listPlaylist = function () {
 ControllerPodstream.prototype.browsePlaylist = function (uri) {
 	var self = this;
     
-    self.logger.info("podstreams browsePlaylist: "+curUri);
+    self.logger.info("podstreams browsePlaylist: "+uri);
 
     var defer = libQ.defer();
     var name = uri.split('/')[1];
@@ -233,7 +235,7 @@ ControllerPodstream.prototype.browsePlaylist = function (uri) {
 
     var name = uri.split('/')[1];
 
-    var promise = self.commandRouter.playListManager.getPlaylistContent(name);
+    var promise = self.commandRouter.playListManager.commonGetPlaylistContent(self.podstreamFolder ,name);
     promise.then(function (data) {
 
         var n = data.length;
