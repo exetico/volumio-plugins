@@ -5,8 +5,9 @@
 <xsl:template match="item">
 <xsl:variable name="url" select="enclosure/@url"/>
 <xsl:variable name="image" select="*[local-name() = 'image']/@href"/>
+<xsl:variable name="mainimage" select="../image/url"/>
 <xsl:choose>
-    <xsl:when test="string-length($url) > 10 and string-length(pubDate) > 1">
+    <xsl:when test="string-length($url) > 10 and string-length($image) > 5">
         {
             "service":"webradio",
             "uri":"<xsl:value-of select="$url" />",
@@ -14,11 +15,20 @@
             "albumart": "<xsl:value-of select="$image" />"
         }
     </xsl:when>
+    <xsl:when test="string-length($url) > 10 and string-length($mainimage) > 5">
+        {
+            "service":"webradio",
+            "uri":"<xsl:value-of select="$url" />",
+            "title":"<xsl:value-of select="translate(title, '&quot;', '`')"/> - <xsl:value-of select="pubDate" />",
+            "albumart": "<xsl:value-of select="$mainimage" />"
+        }
+    </xsl:when>
     <xsl:when test="string-length($url) > 10">
         {
             "service":"webradio",
             "uri":"<xsl:value-of select="$url" />",
-            "title":"<xsl:value-of select="translate(title, '&quot;', '`')"/> - <xsl:value-of select="pubDate" />"
+            "title":"<xsl:value-of select="translate(title, '&quot;', '`')"/> - <xsl:value-of select="pubDate" />",
+            "albumart": "<xsl:value-of select="$mainimage" />"
         }
     </xsl:when>
 </xsl:choose>
