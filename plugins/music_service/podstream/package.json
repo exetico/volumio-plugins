@@ -1,6 +1,6 @@
 {
   "name": "podstream",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Listen to Podcast with Volumio (streaming)",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Nordahl.io",
   "license": "ISC",
   "volumio_info": {
-    "prettyName": "Podstream v. 0.0.3",
+    "prettyName": "Podstream v. 0.0.4",
     "icon": "fa-podcast",
     "plugin_type": "music_service"
   },
