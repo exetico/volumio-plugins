@@ -35,6 +35,7 @@ I don't have any plans to extend this feature, cause it's so easy to put up a ne
 - Thumbsnails is only visible, if it's stored in itunes:image-tag.
 - Maybe add the option to combine both lit-download from URL and local input, and allowing users to add more than one feed with a seperator like "||" or something else.
 - Secure correct install and uninstall with the `/data/podstream/`-location (add and remove!)
+- [... maybe] Looking at https://www.npmjs.com/package/playlist-parser, and consider remake of the playlist generation-solution.
 
 ## Latest improvements
 - ~~Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?~~ 
