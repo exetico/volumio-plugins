@@ -15,7 +15,7 @@ Images is provided and listed left to the podcast-episode, if it's provided in t
 ### Playlists
 The plugin generates playlists based on the rss-feeds. The lists will be visible in "Browse" > "Playlists". Currenlty the playlists isn't removed if you change the source to something else (See to-do)
 
-The data is stored in the `/data/playlist' folder in Volumios preffered format (JSON).
+The data is stored in the `/data/podstream/' folder in Volumios preffered format (JSON).
 
 ### Download RSS-list from URL
 Podstream allowing you to point to an URL, if you like to add multiple things.
@@ -31,7 +31,10 @@ I don't have any plans to extend this feature, cause it's so easy to put up a ne
 - Store playlists in own folder, so it's possibe to remove the playlists when removing the plugin, or do something else? Also think about making a clean-function, if a foldes will be created. [**05. dec 2017**] Moving to /data/podstream - but the code ***isn't yet*** changed!
 - ^ As part of this, consider to move the things to a "Podstream" section in "Browse" for easy access. [**08. dec 2017**] Ongoing - The basic-feature is now done (Need more changed + fixed SVG-file size!). ++ Styling in top of the uri isn't good when looking into the playlists.
 - Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling.
+- Search is not working.
+- Thumbsnails is only visible, if it's stored in itunes:image-tag.
 - Maybe add the option to combine both lit-download from URL and local input, and allowing users to add more than one feed with a seperator like "||" or something else.
+- Secure correct install and uninstall with the `/data/podstream/`-location (add and remove!)
 
 ## Latest improvements
 - ~~Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?~~ 

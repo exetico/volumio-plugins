@@ -1,6 +1,6 @@
 #!/bin/bash
 PLUGINDIR="/data/plugins/music_service/podstream"
-PLFOLDER="/data/playlist"
+PLFOLDER="/data/podstream/"
 TEMPLATE="volumio.xsl"
 
 echo "Let's go - Here goes the podcast train"

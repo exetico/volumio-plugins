@@ -220,12 +220,12 @@ ControllerPodstream.prototype.browsePlaylist = function (uri) {
                 }
             ],
             "info": {
-                "uri": 'podstreams/favourites',
+                "uri": 'podstreams/selected',
                 "title":  name,
                 "name": name,
                 "service": 'mpd',
                 "type":  'play-playlist',
-                "albumart": '/albumart?sourceicon=music_service/mpd/playlisticon.svg'
+                "albumart": '/albumart?sourceicon=music_service/podstream/icon.png'
             },
             "prev": {
                 "uri": "podstreams"
