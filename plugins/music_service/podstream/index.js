@@ -111,7 +111,7 @@ ControllerPodstream.prototype.onStart = function() {
 
 
 ////////////////////// ### BROWSE START ### ///////////////////////////////////
-// Most of the code is from: https://github.com/volumio/Volumio2/blob/master/app/plugins/music_service/mpd/index.js
+// Many lines found at https://github.com/volumio/Volumio2/blob/master/app/playlistManager.js && https://github.com/volumio/Volumio2/blob/master/app/plugins/music_service/mpd/index.js - Thanks @Volumio
 ControllerPodstream.prototype.addToBrowseSources = function () {
     var data = {albumart: '/albumart?sourceicon=music_service/podstream/icon.png', name: 'Podstream', uri: 'podstreams', plugin_type:'music_service',
         plugin_name:'podstream'};
