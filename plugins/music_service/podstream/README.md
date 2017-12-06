@@ -2,7 +2,7 @@
 
 !! **Please note that this plugin isn't ready for regular use with auto-updates RSS-feeds. But you can actually us it. To force an update, just restart Volumio, or disable and enable the plugin - if you change the rss-data feed, update is also forced. If you have any improvements to the project, please fell free to suggest changes.** !!
 
-<img src="https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/podcast.svg">
+![Podcast icon provided by FontAwesome](icon.png)
 
 # Stream Podcasts on Volumio (Create playlist with rss-feeds)
 This is still in early state - but you are welcome to look into how it looks. Please take a look at the "To-do/Known issues"-section, before submitting any issues. Thanks!
