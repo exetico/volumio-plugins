@@ -113,6 +113,10 @@ Browse single playlist (with unique images for each episode)
 ![Browse single playlist (with unique images for each episode)](https://user-images.githubusercontent.com/3549445/33711230-934c3a74-db43-11e7-96e8-4fa55402357d.png)
 _An clean-up is planned for this part of the plugin._
 
+Overview of all podcasts in Grid-mode
+![Browse single playlist - Grid view)](https://user-images.githubusercontent.com/3549445/33728578-2736e874-db7b-11e7-985e-3f327da97ee1.png)
+
+Viewing playlist - Grid view
 ![Browse single playlist - Grid view)](https://user-images.githubusercontent.com/3549445/33715801-1d48a6e4-db54-11e7-9eba-7877f12f1bb3.png)
 
 
