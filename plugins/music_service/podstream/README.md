@@ -94,7 +94,7 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 
 
 # Screenshots
-Latest screenshots is from v. `0.0.3`. Note that changes could have been made.
+Latest screenshots is from v. `0.0.5`. Note that changes could have been made.
 
 Option-page
 
