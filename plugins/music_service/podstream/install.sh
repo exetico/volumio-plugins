@@ -12,10 +12,12 @@ sudo chmod u+x /data/plugins/music_service/podstream/rss2playlist_service.sh
 
 echo "Making podstream-folder for playlists located in /data"
 mkdir -p /data/podstream
-
+chown volumio:volumio /data/podstream
 echo "Let's go to the podstream plugin-folder and secure that the albumart-folder is created"
 cd /data/plugins/music_service/podstream/
 mkdir -p albumart
+chown volumio:volumio albumart
+
 
 echo "Checking if podstream service exists"
 if [ ! -f "/etc/systemd/system/podstream.service" ];
