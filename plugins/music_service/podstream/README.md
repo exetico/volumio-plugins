@@ -27,7 +27,7 @@ Grap the [latest release](https://github.com/exetico/volumio-plugins/releases/la
 This plugin isn't ready for the market. But you are welcome to give it a try.
 
 
-## Features
+# Features
 ### Own section in "Browse"
 Podstream has it's own tile in the "Browse"-overview, allowing you to easily access all generated playlists.
 
@@ -57,7 +57,7 @@ Anders & Anders Podcast;http://www.spreaker.com/show/1929925/episodes/feed
 ```
 Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Title Goes Here;http://podcasthere.com/rss` at the moment.
 
-## To-do/Known issues:
+# To-do/Known issues
 - [ ] Allow the user to edit the frequency of the update-interval (on hour-basis) in the Volumio-configs
 - [ ] Improving the "browsePlaylist" view, and consider if the top-bar should be removed with "image" and huge "Play playlist"-button. 
 - [ ] Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling. [**07. dec 2017**] Works OK with the Raspberry Pi 2 B (Just tested with clean-install)
@@ -68,42 +68,48 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - [ ] Add an "FAQ/Quick start guide" to the plugin
 - [ ] Publich the plugin and tell the world about the plugin in the [Volumio 2 Plugins Collection](https://volumio.org/forum/volumio-plugins-collection-t6251.html)-thread.
 
-## Maybe
+# Maybe
 - Add the option to combine both URL-feed and local input - and allow users to add more than one feed with a seperator like "||" or something else.
 - Add support for a local-storage file in `/mnt/INTERNAL` (cause that folder is easy to access on the local network)
 - Add force-update to the Option-page.
 - Save the global image for each podcast so it can be listed within `listPlaylists` - and consider to allow users to use the "Big tile"-view, if the task is easy to do.
 - Look at https://www.npmjs.com/package/playlist-parser, and consider remake of the playlist generation-solution.
 
-## Latest improvements
+# Latest improvements
 - [x] _Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?_
-[**30. nov 2017**] Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`
+ [**30. nov 2017**] Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`
 - [x] _Store playlists in own folder, so it's possibe to remove the playlists when removing the plugin, or do something else? Also think about making a clean-function, if a foldes will be created._
-[**05. dec 2017**] Moving to /data/podstream - but the code ***isn't yet*** changed!
-[**06. dec 2017**] All changes is made. But `install.sh` and `uninstall.sh` needs to be updated. This is added to the to-do.
+ [**05. dec 2017**] Moving to /data/podstream - but the code ***isn't yet*** changed!
+ [**06. dec 2017**] All changes is made. But `install.sh` and `uninstall.sh` needs to be updated. This is added to the to-do.
 - [x] _^ As part of this, consider to move the things to a "Podstream" section in "Browse" for easy access._
-[**05. dec 2017**] Ongoing - The basic-feature is now done (Need more changed + fixed SVG-file size!). ++ Styling in top of the uri isn't good when looking into the playlists.
-[**06. dec 2017**] The Browse-feature is now workking, but needs more love. A new "To-do" point is added.
+ [**05. dec 2017**] Ongoing - The basic-feature is now done (Need more changed + fixed SVG-file size!). ++ Styling in top of the uri isn't good when looking into the playlists.
+ [**06. dec 2017**] The Browse-feature is now workking, but needs more love. A new "To-do" point is added.
 - [x] _Thumbsnails is only visible, if it's stored in itunes:image-tag._
-[**06. dec 2017**] Thumbnails is now taken from itunes:image in each item (Can be unique image) OR image/url in channel (Global image for whole list)
+ [**06. dec 2017**] Thumbnails is now taken from itunes:image in each item (Can be unique image) OR image/url in channel (Global image for whole list)
 
-## Credits
-- Thanks to the [Volumio-tema](https://github.com/volumio/Volumio2). Multiple lines is used with just a few changes, cause the `playlistManager` > `listPlaylist` can't handle custom folder locations.
-- Thanks to [buzink](https://github.com/buzink/podcast2playlist) for the original podcast-playlist structure, idea and solution (_It's now hardly changed, cleaned up, and multiple options is removed_)
-- Thanks to [volspotconnect](https://github.com/balbuze/volumio-plugins/tree/master/plugins/music_service/volspotconnect) for the first code-structure. I couldnt' find out how is was working back then.
 
-## Screenshots
-_Latest screenshots is from v. `0.0.3`. Note that changes could have been made._
+# Screenshots
+Latest screenshots is from v. `0.0.3`. Note that changes could have been made.
 
 Option-page
+
 ![Option-page](https://user-images.githubusercontent.com/3549445/33711098-0fb525e0-db43-11e7-9c2e-ec33b3777c8a.png)
 
 Icon in Browse
+
 ![Icon in Browse](https://user-images.githubusercontent.com/3549445/33711139-3abfbc1e-db43-11e7-9539-1a425259bdaa.png)
 
 Playlist (Podcast) overview
+
 ![Playlist (Podcast) overview](https://user-images.githubusercontent.com/3549445/33711171-54f23a1c-db43-11e7-9d93-5917cd15cb43.png)
 
 Browse single playlist (with unique images for each episode)
+
 ![Browse single playlist (with unique images for each episode)](https://user-images.githubusercontent.com/3549445/33711230-934c3a74-db43-11e7-96e8-4fa55402357d.png)
 _An clean-up is planned for this part of the plugin._
+
+
+# Credits
+- Thanks to the [Volumio-tema](https://github.com/volumio/Volumio2). Multiple lines is used with just a few changes, cause the `playlistManager` > `listPlaylist` can't handle custom folder locations.
+- Thanks to [buzink](https://github.com/buzink/podcast2playlist) for the original podcast-playlist structure, idea and solution (_It's now hardly changed, cleaned up, and multiple options is removed_)
+- Thanks to [volspotconnect](https://github.com/balbuze/volumio-plugins/tree/master/plugins/music_service/volspotconnect) for the first code-structure. I couldnt' find out how is was working back then.
