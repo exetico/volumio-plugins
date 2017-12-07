@@ -36,12 +36,12 @@ The plugin generates playlists based on the rss-feeds. The lists will be visible
 
 The data is stored in the `/data/podstream/' folder in Volumios preffered format (JSON).
 
-### Thumbnails
-Images is provided and listed left to the podcast-episode, if it's provided in the source. Currenlty i'm looking at:
+### Albumart
+Images is provided for each episode, if i can find it in the source. Currenlty i'm looking at:
 - `itunes:image` in each `item` (Can be unique image)
 - `image/url` in `channel` (Global image for whole list)
 
-Thumbsnails is not stored at the device. This means that the images is loaded every time the playlist being opened.
+Albumart for each episode is not stored at the device. This means that the images is loaded every time the playlist being opened. But albumart for each podcast-playlist is downloaded to the device and stored in $PLUGINDIR > `albumart`
 
 ### RSS-list by URL or inline
 Podstream allowing you to point to an URL, if you like to add multiple RSS-feeds.
@@ -70,7 +70,6 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - Add the option to combine both URL-feed and local input - and allow users to add more than one feed with a seperator like "||" or something else.
 - Add support for a local-storage file in `/mnt/INTERNAL` (cause that folder is easy to access on the local network)
 - Add force-update to the Option-page.
-- Save the global image for each podcast so it can be listed within `listPlaylists` - and consider to allow users to use the "Big tile"-view, if the task is easy to do. If the images will be saved globally, use the cover-art for the podcast to display in `listPlaylists` as `
 - Look at https://www.npmjs.com/package/playlist-parser, and consider remake of the playlist generation-solution.
 - Improve the streame-filename title in "Playing now" if possible?
 
@@ -89,6 +88,9 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
  **07. dec 2017** Added grid-option and corrected the UI-things, so it looks more clean.
 - [x] _Secure correct `install.sh` and `uninstall.sh` with the `/data/podstream/`-location (Add & Remove folder in the process)_<br/>
  **07. dec 2017** Now added to `install.sh` and `uninstall.sh`
+- [x] _Save the global image for each podcast so it can be listed within `listPlaylists` - and consider to allow users to use the "Big tile"-view, if the task is easy to do. If the images will be saved globally, use the cover-art for the podcast to display in `listPlaylists`_ <br/>
+ **07. dec 2017** Albumart on playlist-level is now stored in $PLUGINDIR > `albumart`. Albumart on episode-level is still loaded by the URL's found in the XML.
+
 
 # Screenshots
 Latest screenshots is from v. `0.0.3`. Note that changes could have been made.
