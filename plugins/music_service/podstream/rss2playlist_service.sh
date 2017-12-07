@@ -2,6 +2,7 @@
 PLUGINDIR="/data/plugins/music_service/podstream"
 PLFOLDER="/data/podstream/"
 TEMPLATE="volumio.xsl"
+UnwantedCharacters="&"
 
 echo "[PODSTREAM - rss2playlist_service.sh] Let's go - Here goes the podcast train"
 cd $PLUGINDIR
@@ -22,13 +23,14 @@ for f in *.rss
 do
   filename=$(basename "$f")
   filename="${filename%.*}"
+  albumartname=${filename//$UnwantedCharacters/}".jpg"
   "[PODSTREAM - rss2playlist_service.sh] Looking for albumart..."
-  if [ ! -f "$PLUGINDIR/albumart/$filename".jpg ];
+  if [ ! -f "$PLUGINDIR/albumart/$albumartname" ];
     then
-      echo "[PODSTREAM - rss2playlist_service.sh] Image from: $f | Export to: $PLUGINDIR/albumart/$filename.jpg"
-      grep -o '<url>[^<]*' "$filename".rss | grep -o '[^>]*$' | xargs wget -O "$PLUGINDIR/albumart/$filename".jpg -c
+      echo "[PODSTREAM - rss2playlist_service.sh] Image from: $f | Export to: $PLUGINDIR/albumart/$albumartname"
+      grep -o '<url>[^<]*' "$filename".rss | grep -o '[^>]*$' | xargs wget -O "$PLUGINDIR/albumart/$albumartname" -c
     else
-      echo "[PODSTREAM - rss2playlist_service.sh] Image already downloaded to the albumart-folder: $filename.jpg"
+      echo "[PODSTREAM - rss2playlist_service.sh] Image already downloaded to the albumart-folder: $albumartname"
   fi
   echo "[PODSTREAM - rss2playlist_service.sh] Converting rss file - $f"
   xsltproc -o "$PLFOLDER"/"$filename" "$TEMPLATE" "$f"

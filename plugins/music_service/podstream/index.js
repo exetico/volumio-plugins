@@ -166,12 +166,15 @@ ControllerPodstream.prototype.listPlaylists = function (uri) {
 	var promise = self.listPlaylist();
 	promise.then(function (data) {
 		for (var i in data) {
-			var ithdata = data[i];
+            var ithdata = data[i];
+            var UnwantedCharacters = "&"
+            var albumart = ithdata.replace(new RegExp(UnwantedCharacters, "g"), "");
+            self.logger.info("ALBUMART: "+albumart);
 			var playlist = {
                 "service": "mpd",
                 "type": 'podstream',
                 "title": ithdata,
-                "albumart": '/albumart?sourceicon=music_service/podstream/albumart/' + ithdata + '.jpg',
+                "albumart": '/albumart?sourceicon=music_service/podstream/albumart/' + albumart + '.jpg',
                 "uri": 'podstreams/' + ithdata
             };
             response.navigation.lists[0].items.push(playlist);
