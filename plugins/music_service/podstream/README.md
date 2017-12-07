@@ -1,10 +1,15 @@
 [![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.svg)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
 
-**IMPORTANT: This plugin isn't ready for regular use, if you expect it to auto-update the playlists.**
+**IMPORTANT**
+This plugin isn't ready for regular use, **if you expect it to auto-update the playlists**.
 
-**But you are welcome to give it a try, if you're willing to trigger the job yourself. It's pretty easy. There is three options. (1) Just restart Volumio - (2) Disable and enable the plugin - (3) Press the save-button in options.**
+But you are welcome to give it a try, if you're willing to trigger the job by you own. It's pretty easy. There is three possible ways:
+1. Press the save-button in options
+2. Disable and enable the plugin
+3. Restart Volumio
 
-**If you have any improvements to the project, please let me know.** !!
+**If you have any improvements to the project, please let me know.**
+
 
 ![Podcast icon provided by FontAwesome converted with http://fa2png.io/](https://user-images.githubusercontent.com/3549445/33657348-53f6ba7c-da79-11e7-9997-c4e621461a7a.png)
 
