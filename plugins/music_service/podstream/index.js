@@ -171,7 +171,7 @@ ControllerPodstream.prototype.listPlaylists = function (uri) {
                 "service": "mpd",
                 "type": 'podstream',
                 "title": ithdata,
-                "icon": 'fa fa-list-ol',
+                "albumart": '/albumart?sourceicon=music_service/podstream/albumart/' + ithdata + '.jpg',
                 "uri": 'podstreams/' + ithdata
             };
             response.navigation.lists[0].items.push(playlist);
