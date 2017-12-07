@@ -1,4 +1,4 @@
-[![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.png)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
+[![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.svg)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
 
 **IMPORTANT: This plugin isn't ready for regular use, if you expect it to auto-update the playlists.**
 
