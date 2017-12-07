@@ -59,8 +59,7 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 
 # To-do/Known issues
 - [ ] Allow the user to edit the frequency of the update-interval (on hour-basis) in the Volumio-configs
-- [ ] Improving the "browsePlaylist" view, and consider if the top-bar should be removed with "image" and huge "Play playlist"-button. 
-- [ ] Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling. [**07. dec 2017**] Works OK with the Raspberry Pi 2 B (Just tested with clean-install)
+- [ ] Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling. **07. dec 2017** Works OK with the Raspberry Pi 2 B (Just tested with clean-install)
 - [ ] Search is not working... but should it in the future?:-) (the `searchFor` is added)
 - [ ] Currenlty the playlists isn't removed if you change the source to something else. Clean up dat..... dust.
 - [ ] Secure correct `install.sh` and `uninstall.sh` with the `/data/podstream/`-location (Add & Remove folder in the process)
@@ -72,7 +71,7 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - Add the option to combine both URL-feed and local input - and allow users to add more than one feed with a seperator like "||" or something else.
 - Add support for a local-storage file in `/mnt/INTERNAL` (cause that folder is easy to access on the local network)
 - Add force-update to the Option-page.
-- Save the global image for each podcast so it can be listed within `listPlaylists` - and consider to allow users to use the "Big tile"-view, if the task is easy to do.
+- Save the global image for each podcast so it can be listed within `listPlaylists` - and consider to allow users to use the "Big tile"-view, if the task is easy to do. If the images will be saved globally, use the cover-art for the podcast to display in `listPlaylists` as `
 - Look at https://www.npmjs.com/package/playlist-parser, and consider remake of the playlist generation-solution.
 
 # Latest improvements
@@ -86,6 +85,8 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
  **06. dec 2017** The Browse-feature is now workking, but needs more love. A new "To-do" point is added.
 - [x] _Thumbsnails is only visible, if it's stored in itunes:image-tag._<br/>
  **06. dec 2017** Thumbnails is now taken from itunes:image in each item (Can be unique image) OR image/url in channel (Global image for whole list)
+- [x] _Improving the "browsePlaylist" view, and consider if the top-bar should be removed with  "image" and huge "Play playlist"-button._<br/>
+ **07. dec 2017 - 1** Added grid-option and corrected the UI-things, so it looks more clean.
 
 
 # Screenshots
@@ -107,6 +108,8 @@ Browse single playlist (with unique images for each episode)
 
 ![Browse single playlist (with unique images for each episode)](https://user-images.githubusercontent.com/3549445/33711230-934c3a74-db43-11e7-96e8-4fa55402357d.png)
 _An clean-up is planned for this part of the plugin._
+
+![Browse single playlist - Grid view)](https://user-images.githubusercontent.com/3549445/33715801-1d48a6e4-db54-11e7-9eba-7877f12f1bb3.png)
 
 
 # Credits

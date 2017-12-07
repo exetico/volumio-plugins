@@ -150,8 +150,10 @@ ControllerPodstream.prototype.listPlaylists = function (uri) {
         "navigation": {
             "lists": [
                 {
+                    "title":  "Podstream",
+                    "icon": 'fa fa-podcast',
                     "availableListViews": [
-                        "list"
+                        "grid", "list"
                     ],
                     "items": [
 
@@ -212,21 +214,13 @@ ControllerPodstream.prototype.browsePlaylist = function (uri) {
             "lists": [
                 {
                     "availableListViews": [
-                        "list"
+                        "list", "grid"
                     ],
                     "items": [
 
                     ]
                 }
             ],
-            "info": {
-                "uri": 'podstreams/selected',
-                "title":  name,
-                "name": name,
-                "service": 'mpd',
-                "type":  'play-playlist',
-                "albumart": '/albumart?sourceicon=music_service/podstream/icon.png'
-            },
             "prev": {
                 "uri": "podstreams"
             }
