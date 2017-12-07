@@ -62,7 +62,6 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - [ ] Fixing the loading bar somethings ending at 70%, but with the "Plugin Successfully Installed" message is showing up. I'm not sure whether it's a problem in the `install.sh`-file, or the Volumio Plugin-handling. **07. dec 2017** Works OK with the Raspberry Pi 2 B (Just tested with clean-install)
 - [ ] Search is not working... but should it in the future?:-) (the `searchFor` is added)
 - [ ] Currenlty the playlists isn't removed if you change the source to something else. Clean up dat..... dust.
-- [ ] Secure correct `install.sh` and `uninstall.sh` with the `/data/podstream/`-location (Add & Remove folder in the process)
 - [ ] Create .timer for the .service, so it's triggered every 2. hours fx - or see [maybe](#maybe)-tag where `playlist-parser` is mentioned.
 - [ ] Add an "FAQ/Quick start guide" to the plugin
 - [ ] Publich the plugin and tell the world about the plugin in the [Volumio 2 Plugins Collection](https://volumio.org/forum/volumio-plugins-collection-t6251.html)-thread.
@@ -87,8 +86,9 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - [x] _Thumbsnails is only visible, if it's stored in itunes:image-tag._<br/>
  **06. dec 2017** Thumbnails is now taken from itunes:image in each item (Can be unique image) OR image/url in channel (Global image for whole list)
 - [x] _Improving the "browsePlaylist" view, and consider if the top-bar should be removed with  "image" and huge "Play playlist"-button._<br/>
- **07. dec 2017 - 1** Added grid-option and corrected the UI-things, so it looks more clean.
-
+ **07. dec 2017** Added grid-option and corrected the UI-things, so it looks more clean.
+- [x] _Secure correct `install.sh` and `uninstall.sh` with the `/data/podstream/`-location (Add & Remove folder in the process)_<br/>
+ **07. dec 2017** Now added to `install.sh` and `uninstall.sh`
 
 # Screenshots
 Latest screenshots is from v. `0.0.3`. Note that changes could have been made.

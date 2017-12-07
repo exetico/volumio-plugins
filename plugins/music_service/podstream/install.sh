@@ -10,11 +10,17 @@ echo "...for original podcast2playlist-solution with xsltproc, but most of the s
 echo "Chmod script"
 sudo chmod u+x /data/plugins/music_service/podstream/rss2playlist_service.sh
 
+echo "Making podstream-folder for playlists located in /data"
+mkdir -p /data/podstream
+
+echo "Let's go to the podstream plugin-folder and secure that the albumart-folder is created"
+cd /data/plugins/music_service/podstream/
+mkdir -p albumart
+
 echo "Checking if podstream service exists"
 if [ ! -f "/etc/systemd/system/podstream.service" ];
 	then
 		echo "file podstream.service doesn't exist, creating"
-		cd /data/plugins/music_service/podstream/
 		sudo tar -xvf podstream.service.tar -C /
 	else
 		echo "podstream.service already exists. Nothing to do !"
