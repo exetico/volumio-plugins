@@ -10,9 +10,10 @@ cd $PLUGINDIR
 
 #download rss feeds
 while read p; do
-  echo "${p%;*}"
-  echo "${p##*;}"
-  wget "${p##*;}" -O "${p%;*}".rss      
+  TITLE="${p%;*}"
+  URL="${p##*;}"
+  URLFixed=${URL//$'\r'/}
+  wget "$URLFixed" -O "$TITLE".rss  
 done <rssfeeds
 
 #convert rss feeds to playlist
