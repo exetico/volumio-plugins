@@ -73,6 +73,7 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - Add force-update to the Option-page.
 - Save the global image for each podcast so it can be listed within `listPlaylists` - and consider to allow users to use the "Big tile"-view, if the task is easy to do. If the images will be saved globally, use the cover-art for the podcast to display in `listPlaylists` as `
 - Look at https://www.npmjs.com/package/playlist-parser, and consider remake of the playlist generation-solution.
+- Improve the streame-filename title in "Playing now" if possible?
 
 # Latest improvements
 - [x] _Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?_<br/>
