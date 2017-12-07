@@ -96,19 +96,19 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 # Screenshots
 Latest screenshots is from v. `0.0.5`. Note that changes could have been made.
 
-Option-page<br/>
+**Option-page**<br/>
 ![Option-page](https://user-images.githubusercontent.com/3549445/33711098-0fb525e0-db43-11e7-9c2e-ec33b3777c8a.png)
 
-Icon in Browse<br/>
+**Icon in Browse**<br/>
 ![Icon in Browse](https://user-images.githubusercontent.com/3549445/33711139-3abfbc1e-db43-11e7-9539-1a425259bdaa.png)
 
-Playlist (Podcast) overview<br/>
+**Playlist (Podcast) overview**<br/>
 ![Playlist (Podcast) overview](https://user-images.githubusercontent.com/3549445/33711171-54f23a1c-db43-11e7-9d93-5917cd15cb43.png)
 
-Overview of all podcasts in Grid-mode<br/>
+**Overview of all podcasts in Grid-mode**<br/>
 ![Browse single playlist - Grid view)](https://user-images.githubusercontent.com/3549445/33728578-2736e874-db7b-11e7-985e-3f327da97ee1.png)
 
-Viewing playlist - Grid view
+**Viewing playlist - Grid view**<br/>
 ![Browse single playlist - Grid view)](https://user-images.githubusercontent.com/3549445/33715801-1d48a6e4-db54-11e7-9eba-7877f12f1bb3.png)
 
 
