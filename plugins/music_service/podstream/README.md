@@ -41,7 +41,8 @@ Images is provided for each episode, if i can find it in the source. Currenlty i
 - `itunes:image` in each `item` (Can be unique image)
 - `image/url` in `channel` (Global image for whole list)
 
-Albumart for each episode is not stored at the device. This means that the images is loaded every time the playlist being opened. But albumart for each podcast-playlist is downloaded to the device and stored in $PLUGINDIR > `albumart`
+Albumart for each episode is not stored at the device. This means that the images is loaded every time the playlist being opened. But albumart for each podcast-playlist is downloaded to the device and stored in $PLUGINDIR > `albumart`. Here i'm looking at:
+- First `<url>` in the XML. It's very basic, but works as it should. The full command is: `grep -o '<url>[^<]*' "$filename".rss | grep -o '[^>]*$' | xargs wget -O "$PLUGINDIR/albumart/$albumartname" -c`
 
 ### RSS-list by URL or inline
 Podstream allowing you to point to an URL, if you like to add multiple RSS-feeds.
