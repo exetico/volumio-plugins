@@ -76,16 +76,16 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - Look at https://www.npmjs.com/package/playlist-parser, and consider remake of the playlist generation-solution.
 
 # Latest improvements
-- [x] _Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?_
- [**30. nov 2017**] Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`
-- [x] _Store playlists in own folder, so it's possibe to remove the playlists when removing the plugin, or do something else? Also think about making a clean-function, if a foldes will be created._
- [**05. dec 2017**] Moving to /data/podstream - but the code ***isn't yet*** changed!
- [**06. dec 2017**] All changes is made. But `install.sh` and `uninstall.sh` needs to be updated. This is added to the to-do.
-- [x] _^ As part of this, consider to move the things to a "Podstream" section in "Browse" for easy access._
- [**05. dec 2017**] Ongoing - The basic-feature is now done (Need more changed + fixed SVG-file size!). ++ Styling in top of the uri isn't good when looking into the playlists.
- [**06. dec 2017**] The Browse-feature is now workking, but needs more love. A new "To-do" point is added.
-- [x] _Thumbsnails is only visible, if it's stored in itunes:image-tag._
- [**06. dec 2017**] Thumbnails is now taken from itunes:image in each item (Can be unique image) OR image/url in channel (Global image for whole list)
+- [x] _Look into a easy way to handle the rssfeed-stuff. Should i go with an table-kinda thing? (I can't find anything like this, in the Volumio GUI at the moment), or should i go with an simple solution like allowing to referate to an pastebin-file or something like that?_<br/>
+ **30. nov 2017** Now supporting download from web-source. I will recommend to use Pastebin.com and choose the "raw"-button. Paste in the URL like `https://pastebin.com/raw/HCVV55US`
+- [x] _Store playlists in own folder, so it's possibe to remove the playlists when removing the plugin, or do something else? Also think about making a clean-function, if a foldes will be created._<br/>
+ **05. dec 2017** Moving to /data/podstream - but the code ***isn't yet*** changed!<br/>
+ **06. dec 2017** All changes is made. But `install.sh` and `uninstall.sh` needs to be updated. This is added to the to-do.
+- [x] _As part of the move, consider to move the things to a "Podstream" section in "Browse" for easy access._<br/>
+ **05. dec 2017** Ongoing - The basic-feature is now done (Need more changed + fixed SVG-file size!). ++ Styling in top of the uri isn't good when looking into the playlists.<br/>
+ **06. dec 2017** The Browse-feature is now workking, but needs more love. A new "To-do" point is added.
+- [x] _Thumbsnails is only visible, if it's stored in itunes:image-tag._<br/>
+ **06. dec 2017** Thumbnails is now taken from itunes:image in each item (Can be unique image) OR image/url in channel (Global image for whole list)
 
 
 # Screenshots
