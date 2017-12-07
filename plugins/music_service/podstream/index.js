@@ -167,8 +167,7 @@ ControllerPodstream.prototype.listPlaylists = function (uri) {
 	promise.then(function (data) {
 		for (var i in data) {
             var ithdata = data[i];
-            var UnwantedCharacters = "&"
-            var albumart = ithdata.replace(new RegExp(UnwantedCharacters, "g"), "");
+            var albumart = ithdata.replace(/[^a-z0-9]+/gi, "");
             self.logger.info("ALBUMART: "+albumart);
 			var playlist = {
                 "service": "mpd",

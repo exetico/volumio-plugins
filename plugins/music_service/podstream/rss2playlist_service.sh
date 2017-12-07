@@ -2,12 +2,9 @@
 PLUGINDIR="/data/plugins/music_service/podstream"
 PLFOLDER="/data/podstream/"
 TEMPLATE="volumio.xsl"
-UnwantedCharacters="&"
 
 echo "[PODSTREAM - rss2playlist_service.sh] Let's go - Here goes the podcast train"
 cd $PLUGINDIR
-#ls
-#tail rssfeeds
 
 #download rss feeds
 while read p; do
@@ -23,7 +20,7 @@ for f in *.rss
 do
   filename=$(basename "$f")
   filename="${filename%.*}"
-  albumartname=${filename//$UnwantedCharacters/}".jpg"
+  albumartname=${filename//[^[:alnum:]]/}".jpg"
   "[PODSTREAM - rss2playlist_service.sh] Looking for albumart..."
   if [ ! -f "$PLUGINDIR/albumart/$albumartname" ];
     then
