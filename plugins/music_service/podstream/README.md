@@ -64,11 +64,11 @@ Note that the input-field **only support ONE SINGLE RSS-FEED** like `Podcast Tit
 - [ ] Search is not working... but should it in the future?:-) (the `searchFor` is added)
 - [ ] Currenlty the playlists isn't removed if you change the source to something else. Clean up dat..... dust.
 - [ ] Secure correct `install.sh` and `uninstall.sh` with the `/data/podstream/`-location (Add & Remove folder in the process)
-- [ ] Create .timer for the .service, so it's triggered every 2. hours fx. OR see [maybe](#maybe)tag where `playlist-parser` is mentioned.
+- [ ] Create .timer for the .service, so it's triggered every 2. hours fx - or see [maybe](#maybe)-tag where `playlist-parser` is mentioned.
 - [ ] Add an "FAQ/Quick start guide" to the plugin
 - [ ] Publich the plugin and tell the world about the plugin in the [Volumio 2 Plugins Collection](https://volumio.org/forum/volumio-plugins-collection-t6251.html)-thread.
 
-## Maybe:
+## Maybe
 - Add the option to combine both URL-feed and local input - and allow users to add more than one feed with a seperator like "||" or something else.
 - Add support for a local-storage file in `/mnt/INTERNAL` (cause that folder is easy to access on the local network)
 - Add force-update to the Option-page.
