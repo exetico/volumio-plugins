@@ -1,7 +1,15 @@
-## Please look at the main README :-) No updates will be provided to this project. RIP Podstream.
+## Read this (Below)
+
+__I'm moved to Google Chromecast Audio and Spotify Connect, and with the latest support for podcast-things and other stuff, i don't think that i'll come back to Volumio. You are very welcome to do whatever you want with the project. It's hardly inspired by a few persons (when it comes to codes-blocks), and stripped down to my wishes. The orignally target was a good and flexible way to add own Podcast-feeds to Volumio, and i for sure took the first steps to make it a succes - but i simply leagged focus after moving to a new apartmen, there i implemented Google Chromecast Audio and Home Assistant.__
+
+__Happy coding, if you are going to use this. Please don't blame me for any errors :-) I did like to look into the Volumio Plugin-API and the way to communicate with regular Shell-things.__
+
+__Thanks.__
+
+__//exetico :-)__
 
 <hr>
-[![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.svg)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
+
 
 **IMPORTANT**
 This plugin isn't ready for regular use, **if you expect it to auto-update the playlists**.
