@@ -1,3 +1,6 @@
+## Please look at the main README :-) No updates will be provided to this project. RIP Podstream.
+
+<hr>
 [![GitHub version](https://badge.fury.io/gh/exetico%2Fvolumio-plugins.svg)](https://badge.fury.io/gh/exetico%2Fvolumio-plugins)
 
 **IMPORTANT**
